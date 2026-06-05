@@ -28,9 +28,16 @@ def unpackZip(version, file):
         file for file in temp_dir.rglob("*") 
         if file.suffix.lower() in target_extensions
     ]
+    extra_file_mapping = {
+        "00_Undoe0.556.meta": "meta.json",
+        "02_Undoe0.556.cfg": "config.json",
+        "03_Undoe0.556.pcb": "dk64_us.pcb",
+        "05_Undoe0.556.nro": "dk64_us.nro",
+        "08_Undoe0.556.spv": "dk64_us.spv",
+    }
     if found_files:
         for file in found_files:
-            destination = f"bin/{version}/{file.name}"
+            destination = f"bin/{version}/{extra_file_mapping.get(str(file.name), file.name)}"
             
             # Copy the file
             shutil.copy2(file, destination)
