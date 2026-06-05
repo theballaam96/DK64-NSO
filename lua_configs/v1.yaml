@@ -1,0 +1,795 @@
+convert_hex: true
+symbol_replacement:
+- original: p9_0
+  new: pc
+- original: p9_1
+  new: pc_value
+- original: p1_0
+  new: pc
+- original: p1_1
+  new: pc_value
+- original: r0_0
+  new: map_state
+- original: r0_1
+  new: dest_map
+- original: r0_2
+  new: dest_exit
+- original: r0_3
+  new: is_cutscene_active
+- original: r0_4
+  new: camera_counter
+- original: r11_7
+  new: pause_main_thread
+- original: r11_9
+  new: current_gamemode
+- original: r11_10
+  new: next_gamemode
+- original: r11_17
+  new: cutscene_index
+- original: r11_18
+  new: camera_bank
+- original: r11_19
+  new: cutscene_index
+- original: r11_20
+  new: point_count_cs0
+- original: r11_21
+  new: point_count_cs1
+- original: r11_22
+  new: point_count_cs2
+- original: r11_23
+  new: point_count_cs3
+- original: r11_24
+  new: point_count_cs4
+- original: r11_25
+  new: point_count_cs5
+- original: r11_14
+  new: camera_state_change_timer
+- original: r11_15
+  new: camera_state_change_timer
+- original: r11_16
+  new: camera_state_change_timer
+- original: local r11_11  # Prevent double localling
+  new:
+- original: r11_11
+  new: frames_per_gtask
+- original: local r11_12  # Prevent double localling
+  new: r11_12
+- original: r11_12
+  new: frames_per_gtask
+- original: local r11_13  # Prevent double localling
+  new: r11_13
+- original: r11_13
+  new: frames_per_gtask
+- original: r11_1
+  new: frames_per_gtask
+- original: r11_2
+  new: in_beetle_countdown
+- original: local r11_3  # Prevent double localling
+  new:
+- original: r11_3
+  new: frames_per_gtask
+- original: local r11_4  # Prevent double localling
+  new:
+- original: r11_4
+  new: frames_per_gtask
+- original: local r11_5  # Prevent double localling
+  new: r11_5
+- original: r11_5
+  new: frames_per_gtask
+- original: local r11_6  # Prevent double localling
+  new: r11_6
+- original: r11_6
+  new: frames_per_gtask
+- original: local r11_8  # Prevent double localling
+  new:
+- original: r11_8
+  new: frames_per_gtask
+- original: r11_0
+  new: frames_per_gtask
+- original: r12_0
+  new: next_gamemode
+- original: r12_1
+  new: not_shown_nintendo_logo
+- original: r12_2
+  new: counter
+- original: local r1_3
+  new: local r1_3 = n64GPRReadS64(8)  # Think this is just a decompilation error
+enum_insert_line: 5
+enums:
+- name: Maps
+  syms:
+  - dest_map
+  - n64MemRead32(2155103460)
+  table:
+    - name: TestMap
+      value: 0x0
+    - name: Funky
+      value: 0x1
+    - name: DKArcade
+      value: 0x2
+    - name: HelmBarrel_LankyMaze
+      value: 0x3
+    - name: JapesMountain
+      value: 0x4
+    - name: Cranky
+      value: 0x5
+    - name: JapesMinecart
+      value: 0x6
+    - name: Japes
+      value: 0x7
+    - name: JapesDillo
+      value: 0x8
+    - name: Jetpac
+      value: 0x9
+    - name: Kosh_VEasy
+      value: 0xA
+    - name: Snoop_NormalNoLogo
+      value: 0xB
+    - name: JapesShell
+      value: 0xC
+    - name: JapesPainting
+      value: 0xD
+    - name: AztecBeetle
+      value: 0xE
+    - name: Snide
+      value: 0xF
+    - name: AztecTinyTemple
+      value: 0x10
+    - name: Helm
+      value: 0x11
+    - name: Turtles_VEasy
+      value: 0x12
+    - name: Aztec5DTDK
+      value: 0x13
+    - name: AztecLlamaTemple
+      value: 0x14
+    - name: Aztec5DTDiddy
+      value: 0x15
+    - name: Aztec5DTTiny
+      value: 0x16
+    - name: Aztec5DTLanky
+      value: 0x17
+    - name: Aztec5DTChunky
+      value: 0x18
+    - name: Candy
+      value: 0x19
+    - name: Factory
+      value: 0x1A
+    - name: FactoryCarRace
+      value: 0x1B
+    - name: Helm_IntrosGameOver
+      value: 0x1C
+    - name: FactoryPowerShed
+      value: 0x1D
+    - name: Galleon
+      value: 0x1E
+    - name: GalleonSeasickShip
+      value: 0x1F
+    - name: BattyBarrel_VEasy
+      value: 0x20
+    - name: JapesUnderground
+      value: 0x21
+    - name: Isles
+      value: 0x22
+    - name: HelmBarrel_Target
+      value: 0x23
+    - name: FactoryCrusher
+      value: 0x24
+    - name: JapesBBlast
+      value: 0x25
+    - name: Aztec
+      value: 0x26
+    - name: GalleonSealRace
+      value: 0x27
+    - name: NintendoLogo
+      value: 0x28
+    - name: AztecBBlast
+      value: 0x29
+    - name: TroffNScoff
+      value: 0x2A
+    - name: Galleon5DSDiddyLankyChunky
+      value: 0x2B
+    - name: GalleonTreasureChest
+      value: 0x2C
+    - name: GalleonMermaid
+      value: 0x2D
+    - name: Galleon5DSDKTiny
+      value: 0x2E
+    - name: Galleon2DS
+      value: 0x2F
+    - name: Fungi
+      value: 0x30
+    - name: GalleonLighthouse
+      value: 0x31
+    - name: HelmBarrel_MushroomBounce
+      value: 0x32
+    - name: GalleonMechFish
+      value: 0x33
+    - name: FungiAntHill
+      value: 0x34
+    - name: BattleArena_BeaverBrawl
+      value: 0x35
+    - name: GalleonBBlast
+      value: 0x36
+    - name: FungiMinecart
+      value: 0x37
+    - name: FungiDiddyBarn
+      value: 0x38
+    - name: FungiDiddyAttic
+      value: 0x39
+    - name: FungiLankyAttic
+      value: 0x3A
+    - name: FungiDKBarn
+      value: 0x3B
+    - name: FungiSpider
+      value: 0x3C
+    - name: FungiMillFront
+      value: 0x3D
+    - name: FungiMillRear
+      value: 0x3E
+    - name: FungiMushroomSlam
+      value: 0x3F
+    - name: FungiGiantMushroom
+      value: 0x40
+    - name: Snoop_Normal
+      value: 0x41
+    - name: Maul_Hard
+      value: 0x42
+    - name: Snatch_Normal
+      value: 0x43
+    - name: Maul_Easy
+      value: 0x44
+    - name: Maul_Normal
+      value: 0x45
+    - name: FungiMushroomLeap
+      value: 0x46
+    - name: FungiShootingGame
+      value: 0x47
+    - name: Caves
+      value: 0x48
+    - name: BattleArena_KritterKarnage
+      value: 0x49
+    - name: Snatch_Easy
+      value: 0x4A
+    - name: Snatch_Hard
+      value: 0x4B
+    - name: DKRap
+      value: 0x4C
+    - name: MMayhem_Easy
+      value: 0x4D
+    - name: Barrage_Easy
+      value: 0x4E
+    - name: Barrage_Normal
+      value: 0x4F
+    - name: MainMenu
+      value: 0x50
+    - name: NFRTitleScreen
+      value: 0x51
+    - name: CavesBeetleRace
+      value: 0x52
+    - name: FungiDogadon
+      value: 0x53
+    - name: Caves5DITiny
+      value: 0x54
+    - name: Caves5DILanky
+      value: 0x55
+    - name: Caves5DIDK
+      value: 0x56
+    - name: Castle
+      value: 0x57
+    - name: CastleBallroom
+      value: 0x58
+    - name: CavesRotatingRoom
+      value: 0x59
+    - name: Caves5DCChunky
+      value: 0x5A
+    - name: Caves5DCDK
+      value: 0x5B
+    - name: Caves5DCDiddyLow
+      value: 0x5C
+    - name: Caves5DCTiny
+      value: 0x5D
+    - name: Caves1DC
+      value: 0x5E
+    - name: Caves5DIChunky
+      value: 0x5F
+    - name: Salvage_Normal
+      value: 0x60
+    - name: KLumsy
+      value: 0x61
+    - name: CavesTileFlip
+      value: 0x62
+    - name: Sortie_Easy
+      value: 0x63
+    - name: Caves5DIDiddy
+      value: 0x64
+    - name: Klamour_Easy
+      value: 0x65
+    - name: Bash_VEasy
+      value: 0x66
+    - name: Searchlight_VEasy
+      value: 0x67
+    - name: BBother_Easy
+      value: 0x68
+    - name: CastleTower
+      value: 0x69
+    - name: CastleMinecart
+      value: 0x6A
+    - name: MultiplayerBattleArena
+      value: 0x6B
+    - name: CastleCryptLankyTiny
+      value: 0x6C
+    - name: MultiplayerArena1
+      value: 0x6D
+    - name: FactoryBBlast
+      value: 0x6E
+    - name: GalleonPufftoss
+      value: 0x6F
+    - name: CastleCryptDKDiddyChunky
+      value: 0x70
+    - name: CastleMuseum
+      value: 0x71
+    - name: CastleLibrary
+      value: 0x72
+    - name: Kosh_Easy
+      value: 0x73
+    - name: Kosh_Normal
+      value: 0x74
+    - name: Kosh_Hard
+      value: 0x75
+    - name: Turtles_Easy
+      value: 0x76
+    - name: Turtles_Normal
+      value: 0x77
+    - name: Turtles_Hard
+      value: 0x78
+    - name: BattyBarrel_Easy
+      value: 0x79
+    - name: BattyBarrel_Normal
+      value: 0x7A
+    - name: BattyBarrel_Hard
+      value: 0x7B
+    - name: Maul_Insane
+      value: 0x7C
+    - name: Snatch_Insane
+      value: 0x7D
+    - name: Snoop_VEasy
+      value: 0x7E
+    - name: Snoop_Easy
+      value: 0x7F
+    - name: Snoop_Hard
+      value: 0x80
+    - name: MMayhem_Normal
+      value: 0x81
+    - name: MMayhem_Hard
+      value: 0x82
+    - name: Barrage_Hard
+      value: 0x83
+    - name: Salvage_Hard
+      value: 0x84
+    - name: Salvage_Easy
+      value: 0x85
+    - name: Sortie_Normal
+      value: 0x86
+    - name: Sortie_Hard
+      value: 0x87
+    - name: BBother_Normal
+      value: 0x88
+    - name: BBother_Hard
+      value: 0x89
+    - name: Searchlight_Easy
+      value: 0x8A
+    - name: Searchlight_Normal
+      value: 0x8B
+    - name: Searchlight_Hard
+      value: 0x8C
+    - name: Klamour_Normal
+      value: 0x8D
+    - name: Klamour_Hard
+      value: 0x8E
+    - name: Klamour_Insane
+      value: 0x8F
+    - name: PPPanic_VEasy
+      value: 0x90
+    - name: PPPanic_Easy
+      value: 0x91
+    - name: PPPanic_Normal
+      value: 0x92
+    - name: PPPanic_Hard
+      value: 0x93
+    - name: Bash_Easy
+      value: 0x94
+    - name: Bash_Normal
+      value: 0x95
+    - name: Bash_Hard
+      value: 0x96
+    - name: CastleDungeon
+      value: 0x97
+    - name: Helm_IntroStory
+      value: 0x98
+    - name: Isles_DKTheatre
+      value: 0x99
+    - name: FactoryJack
+      value: 0x9A
+    - name: BattleArena_ArenaAmbush
+      value: 0x9B
+    - name: BattleArena_MoreKritterKarnage
+      value: 0x9C
+    - name: BattleArena_ForestFracas
+      value: 0x9D
+    - name: BattleArena_BishBashBrawl
+      value: 0x9E
+    - name: BattleArena_KamikazeKremlings
+      value: 0x9F
+    - name: BattleArena_PlinthPanic
+      value: 0xA0
+    - name: BattleArena_PinnaclePalaver
+      value: 0xA1
+    - name: BattleArena_ShockwaveShowdown
+      value: 0xA2
+    - name: CastleBasement
+      value: 0xA3
+    - name: CastleTree
+      value: 0xA4
+    - name: HelmBarrel_RandomKremling
+      value: 0xA5
+    - name: CastleShed
+      value: 0xA6
+    - name: CastleTrash
+      value: 0xA7
+    - name: CastleGreenhouse
+      value: 0xA8
+    - name: JapesLobby
+      value: 0xA9
+    - name: HelmLobby
+      value: 0xAA
+    - name: Treehouse
+      value: 0xAB
+    - name: Isles_IntroStoryRock
+      value: 0xAC
+    - name: AztecLobby
+      value: 0xAD
+    - name: GalleonLobby
+      value: 0xAE
+    - name: FactoryLobby
+      value: 0xAF
+    - name: TrainingGrounds
+      value: 0xB0
+    - name: TBarrel_Dive
+      value: 0xB1
+    - name: FungiLobby
+      value: 0xB2
+    - name: GalleonSubmarine
+      value: 0xB3
+    - name: TBarrel_Orange
+      value: 0xB4
+    - name: TBarrel_Barrel
+      value: 0xB5
+    - name: TBarrel_Vine
+      value: 0xB6
+    - name: CastleCrypt
+      value: 0xB7
+    - name: EnguardeArena
+      value: 0xB8
+    - name: CastleCarRace
+      value: 0xB9
+    - name: CavesBBlast
+      value: 0xBA
+    - name: CastleBBlast
+      value: 0xBB
+    - name: FungiBBlast
+      value: 0xBC
+    - name: FairyIsland
+      value: 0xBD
+    - name: MultiplayerArena2
+      value: 0xBE
+    - name: RambiArena
+      value: 0xBF
+    - name: MultiplayerArena3
+      value: 0xC0
+    - name: CastleLobby
+      value: 0xC1
+    - name: CavesLobby
+      value: 0xC2
+    - name: Isles_SnideRoom
+      value: 0xC3
+    - name: CavesDillo
+      value: 0xC4
+    - name: AztecDogadon
+      value: 0xC5
+    - name: TrainingGrounds_EndSequence
+      value: 0xC6
+    - name: CastleKutOut
+      value: 0xC7
+    - name: CavesShackDiddyHigh
+      value: 0xC8
+    - name: HelmBarrel_Rocketbarrel
+      value: 0xC9
+    - name: HelmBarrel_LankyShooting
+      value: 0xCA
+    - name: KRoolDK
+      value: 0xCB
+    - name: KRoolDiddy
+      value: 0xCC
+    - name: KRoolLanky
+      value: 0xCD
+    - name: KRoolTiny
+      value: 0xCE
+    - name: KRoolChunky
+      value: 0xCF
+    - name: BloopersEnding
+      value: 0xD0
+    - name: HelmBarrel_HiddenKremling
+      value: 0xD1
+    - name: HelmBarrel_FloorIsLava
+      value: 0xD2
+    - name: HelmBarrel_ChunkyShooting
+      value: 0xD3
+    - name: HelmBarrel_Rambi
+      value: 0xD4
+    - name: KLumsyEnding
+      value: 0xD5
+    - name: KRoolShoe
+      value: 0xD6
+    - name: KRoolArena
+      value: 0xD7
+- name: CSActive
+  syms:
+  - is_cutscene_active
+  table:
+  - name: NotPlaying
+    value: 0
+  - name: Playing
+    value: 1
+  - name: DonkeyKong64K
+    value: 2
+  - name: Arcade
+    value: 3
+  - name: Jetpac
+    value: 4
+  - name: Zipper
+    value: 6
+- name: GPR
+  funcs:
+  - n64GPRRead32
+  - n64GPRWrite32
+  - n64GPRReadS64
+  - n64GPRWriteS64
+  table:
+  - name: zero
+    value: 0
+  - name: at
+    value: 1
+  - name: v0
+    value: 2
+  - name: v1
+    value: 3
+  - name: a0
+    value: 4
+  - name: a1
+    value: 5
+  - name: a2
+    value: 6
+  - name: a3
+    value: 7
+  - name: t0
+    value: 8
+  - name: t1
+    value: 9
+  - name: t2
+    value: 10
+  - name: t3
+    value: 11
+  - name: t4
+    value: 12
+  - name: t5
+    value: 13
+  - name: t6
+    value: 14
+  - name: t7
+    value: 15
+  - name: s0
+    value: 16
+  - name: s1
+    value: 17
+  - name: s2
+    value: 18
+  - name: s3
+    value: 19
+  - name: s4
+    value: 20
+  - name: s5
+    value: 21
+  - name: s6
+    value: 22
+  - name: s7
+    value: 23
+  - name: t8
+    value: 24
+  - name: t9
+    value: 25
+  - name: k0
+    value: 26
+  - name: k1
+    value: 27
+  - name: gp
+    value: 28
+  - name: sp
+    value: 29
+  - name: fp
+    value: 30
+  - name: ra
+    value: 31
+- name: FPR
+  funcs:
+  - n64FPRReadF32
+  - n64FPRWriteF32
+  table:
+  - name: f0
+    value: 0
+  - name: f1
+    value: 1
+  - name: f2
+    value: 2
+  - name: f3
+    value: 3
+  - name: f4
+    value: 4
+  - name: f5
+    value: 5
+  - name: f6
+    value: 6
+  - name: f7
+    value: 7
+  - name: f8
+    value: 8
+  - name: f9
+    value: 9
+  - name: f10
+    value: 10
+  - name: f11
+    value: 11
+  - name: f12
+    value: 12
+  - name: f13
+    value: 13
+  - name: f14
+    value: 14
+  - name: f15
+    value: 15
+  - name: f16
+    value: 16
+  - name: f17
+    value: 17
+  - name: f18
+    value: 18
+  - name: f19
+    value: 19
+  - name: f20
+    value: 20
+  - name: f21
+    value: 21
+  - name: f22
+    value: 22
+  - name: f23
+    value: 23
+  - name: f24
+    value: 24
+  - name: f25
+    value: 25
+  - name: f26
+    value: 26
+  - name: f27
+    value: 27
+  - name: f28
+    value: 28
+  - name: f29
+    value: 29
+  - name: f30
+    value: 30
+  - name: f31
+    value: 31
+- name: Mode
+  syms:
+  - next_gamemode
+  - current_gamemode
+  table:
+  - name: NintendoLogo
+    value: 0
+  - name: OpeningCutscene
+    value: 1
+  - name: DKRap
+    value: 2
+  - name: DKTV
+    value: 3
+  - name: MainMenu
+    value: 5
+  - name: AdventureAndMultiplayer
+    value: 6
+  - name: LoadingGameOver
+    value: 7
+  - name: GameOver
+    value: 9
+  - name: EndSequenceAdventure
+    value: 10
+  - name: DKTheatre
+    value: 11
+  - name: DKBonusAndBosses
+    value: 12
+  - name: SnidesBonusGames
+    value: 13
+  - name: EndSequenceTheatre
+    value: 14
+comments:
+- find: camera_counter = n64MemRead32(0x807445CC)
+  comment: Counter that takes place in the frame loop
+  type: post
+- find: map_state == 0x8
+  comment: Map State - Always Set
+  type: post
+- find: map_state == 0x18
+  comment: Map State - Always Set, in cutscene
+  type: post
+- find: current_gamemode == Mode.ENDSEQUENCEADVENTURE and next_gamemode == Mode.ENDSEQUENCEADVENTURE and dest_map ~= Maps.ISLES_DKTHEATRE and dest_map == Maps.TRAININGGROUNDS_ENDSEQUENCE then
+  comment: Below does nothing
+  type: above
+- find: n64SetParameter("FrameTicks", 0xBF392)
+  comment: 15 FPS
+  type: post
+- find: n64GPRWrite32(GPR.A1, 0xE1)
+  comment: Set beetle speed to 83% normal (vanilla = 270/0x10E)
+  type: post
+- find: pc == 0x80737E50
+  comment: Audio engine, alCSPlay
+  type: post
+- find: pc == 0x806446DC
+  comment: Reduces, maybe even blocks random lightning
+  type: below
+- find: pc == 0x8068B6B0
+  comment: Sets chunk lighting ($f12) to 0.6f instead of 1.0f
+  type: below
+- find: elseif cutscene_index == 0x2F and point_count_cs0 == 0x6
+  comment: Map 171 - DK's house, end of intro story
+  type: below
+- find: elseif cutscene_index > 0x9 and camera_counter % 0x6 == 0x0
+  comment: Approaching henchmen -> end
+  type: below
+- find: if cutscene_index == 0x8 then
+  comment: "GUARDS!"
+  type: below
+- find: if cutscene_index >= 0x0 and cutscene_index <= 0x7 and cutscene_index == 0x4
+  comment: Help Help
+  type: below
+- find: elseif cutscene_index == 0x18 and point_count_cs0 == 0x8 and point_count_cs1 == 0xE
+  comment: Map 152 - Helm (Intro Story)
+  type: below
+- find: if cutscene_index == 0x1 and camera_counter % 0x3 == 0x0 then
+  comment: Crash into rock
+  type: post
+- find: elseif cutscene_index == 0xC and point_count_cs0 == 0x15 and point_count_cs1 == 0x2
+  comment: Map 172 - Rock (Intro Story)
+  type: below
+- find: if cutscene_index == 0x7 then
+  comment: Intro Story 7
+  type: below
+- find: if cutscene_index >= 0x0 and cutscene_index <= 0x6 then
+  comment: Intro Story 1->6
+  type: below
+- find: if cutscene_index == 0x35 and point_count_cs0 == 0xB and point_count_cs1 == 0xF and point_count_cs2 == 0x9
+  comment: Map 153 - Isles (DK Theatre)
+  type: below
+- find: pc == 0x8068B754
+  comment: Looks like it's messing with the weather system
+  type: below
+- find: pc == 0x807405B4
+  comment: Something in the audio engine?
+  type: below
+- find: pc == 0x80703458
+  comment: Looks like a DL call called during transitions
+  type: below
+- find: pc == 0x806FC93C
+  comment: In DisplayText
+  type: below
+- find: n64MemWrite32(r9_0 + 44, 0x6)
+  comment: Set state to 6
+  type: below
