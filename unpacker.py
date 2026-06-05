@@ -4,7 +4,7 @@ import os
 import shutil
 import zipfile
 import yaml
-from rpt_converter import convert_rpt_to_png
+from tools.rpt_converter import convert_rpt_to_png
 import re
 
 def unpackZip(version, file):
@@ -209,10 +209,10 @@ def unpack(version):
         shutil.rmtree(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     action_taken = False
-    # first_zip = next(input_dir.glob("*.zip"), None)
-    # if first_zip:
-    #     unpackZip(version, first_zip)
-    #     action_taken = True
+    first_zip = next(input_dir.glob("*.zip"), None)
+    if first_zip:
+        unpackZip(version, first_zip)
+        action_taken = True
     first_lua = next(input_dir.glob("*.lua"), None)
     if first_lua:
         convertLua(version, first_lua)
